@@ -1,8 +1,13 @@
-FROM nextcloud:stable
+FROM nextcloud:23.0.0-apache
 ENV NEXTCLOUD_UPDATE=0
 
-COPY mycloud.config.php ./config
+COPY --chown=root:root entrypoint.sh /entrypoint.sh
+COPY --chown=root:root copy.sh /copy.sh
 
-# RUN rmdir /var/www/html/config/CAN_INSTALL
+# Copy src file into apache dir
+RUN /copy.sh
+
+COPY  --chown=www-data:root config/ /var/www/html/config/
+COPY  --chown=www-data:root .ocdata /var/www/html/data/
 
 EXPOSE 80
