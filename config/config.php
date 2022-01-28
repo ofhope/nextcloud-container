@@ -45,6 +45,7 @@ $CONFIG = array (
   'datadirectory' => '/var/www/html/data',
   'dbtype' => 'pgsql',
   'version' => '23.0.0.10',
+  'overwriteprotocol' => 'https',
   'overwrite.cli.url' => 'http://localhost',
   'dbname'        => getenv('POSTGRES_DB'),
   'dbhost'        => getenv('POSTGRES_HOST'),
