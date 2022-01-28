@@ -55,4 +55,5 @@ $CONFIG = array (
   'dbpassword'    => getenv('POSTGRES_PASSWORD'),
   'installed' => true,
   'instanceid'    => getenv('INSTANCE_ID'),
+  
 );
