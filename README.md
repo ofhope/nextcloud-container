@@ -6,7 +6,7 @@ dokku postgres:create nextclouddb
 dokku postgres:expose nextclouddb 5432
 dokku postgres:link nextclouddb cloud
 dokku letsencrypt cloud
-dokku nginx:set node-js-app client-max-body-size 50m
+dokku nginx:set cloud client-max-body-size 50m
 ```
 
 ```bash
@@ -26,8 +26,16 @@ dokku config:set --no-restart cloud \
   OBJECTSTORE_S3_REGION=****
 ```
 
+Add your Dokku remote
+
 ```bash
 git remote add dokku dokku@YOUR_IP:cloud
+```
+
+Deploy a new version
+
+```bash
+git push dokku master
 ```
 
 ## Build and run locally
